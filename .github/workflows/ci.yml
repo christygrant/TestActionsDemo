@@ -2,8 +2,8 @@ name: Test Adder
 
 on: 
   push:
-    paths:
-      - 'src/main/java/com/yourpackage/Adder.java'
+    branches:
+      - '**'
 
 jobs:
   test-adder:
