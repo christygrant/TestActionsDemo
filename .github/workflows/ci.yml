@@ -1,26 +1,23 @@
-name: Test Adder
+name: Run AdderTest on Push
 
-on:
-  push:
-    branches:
-      - '**'
+on: [push]
 
 jobs:
-  test-adder:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '8'
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '8'
 
-    - name: Build with Maven
-      run: mvn clean install
+      - name: Compile AdderTest
+        run: javac -cp .:junit-4.13.2.jar:hamcrest-core-1.3.jar path/to/AdderTest.java
 
-    - name: Run AdderTest
-      run: mvn -Dtest=AdderTest test
+      - name: Run AdderTest
+        run: java -cp .:junit-4.13.2.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore path.to.AdderTest
