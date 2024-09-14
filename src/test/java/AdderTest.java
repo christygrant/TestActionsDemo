@@ -8,7 +8,7 @@ public class AdderTest {
 
     @Test
     public void testAdd() {
-        
+
         Adder adder = new Adder();
 
         // Test adding positive numbers
@@ -24,3 +24,4 @@ public class AdderTest {
         assertEquals(5, adder.add(5, 0));
     }
 }
+0
