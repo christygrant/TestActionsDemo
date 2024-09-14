@@ -24,4 +24,3 @@ public class AdderTest {
         assertEquals(5, adder.add(5, 0));
     }
 }
-0
